@@ -7,6 +7,8 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.room)
 }
 
 kotlin {
@@ -28,7 +30,11 @@ kotlin {
         }
     }
 
+    jvm("desktop")
+
     sourceSets {
+
+        val desktopMain by getting
 
         androidMain.dependencies {
             implementation(compose.preview)
@@ -43,9 +49,18 @@ kotlin {
             implementation(compose.components.uiToolingPreview)
             implementation(libs.androidx.lifecycle.viewmodel)
             implementation(libs.androidx.lifecycle.runtimeCompose)
+            implementation(projects.shared)
+            implementation(libs.room.runtime)
+            implementation(libs.sqlite.bundled)
+
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
+        }
+
+        desktopMain.dependencies {
+            implementation(compose.desktop.currentOs)
+            implementation(libs.kotlinx.coroutinesSwing)
         }
     }
 }
@@ -77,7 +92,32 @@ android {
     }
 }
 
+room {
+    schemaDirectory("$projectDir/schemas")
+    schemaDirectory("debug", "$projectDir/schemas/debug")
+    schemaDirectory("release", "$projectDir/schemas/release")
+}
+
+
+
 dependencies {
     debugImplementation(compose.uiTooling)
+    add("kspAndroid", libs.room.compiler)
+    add("kspIosSimulatorArm64", libs.room.compiler)
+    add("kspIosX64", libs.room.compiler)
+    add("kspIosArm64", libs.room.compiler)
+    add("kspDesktop", libs.room.compiler)
+}
+
+compose.desktop {
+    application {
+        mainClass = "co.tpcreative.qrcode_compose_multipleplatforms.MainKt"
+
+        nativeDistributions {
+            targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
+            packageName = "co.tpcreative.qrcode_compose_multipleplatforms"
+            packageVersion = "1.0.0"
+        }
+    }
 }
 

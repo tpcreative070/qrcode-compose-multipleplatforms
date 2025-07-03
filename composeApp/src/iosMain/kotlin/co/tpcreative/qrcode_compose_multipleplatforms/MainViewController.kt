@@ -1,5 +1,19 @@
 package co.tpcreative.qrcode_compose_multipleplatforms
 
+import androidx.compose.runtime.remember
 import androidx.compose.ui.window.ComposeUIViewController
+import androidx.sqlite.driver.bundled.BundledSQLiteDriver
+import com.example.demo.database.getPeopleDatabase
 
-fun MainViewController() = ComposeUIViewController { App() }
+fun MainViewController() = ComposeUIViewController {
+
+
+
+    val dao = remember {
+        getPeopleDatabase().setDriver(BundledSQLiteDriver()).build().peopleDao()
+    }
+
+    App(dao )
+
+
+}

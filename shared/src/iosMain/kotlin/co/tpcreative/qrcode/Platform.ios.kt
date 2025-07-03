@@ -1,4 +1,4 @@
-package co.tpcreative.qrcode_compose_multipleplatforms
+package com.example.demo
 
 import platform.UIKit.UIDevice
 
