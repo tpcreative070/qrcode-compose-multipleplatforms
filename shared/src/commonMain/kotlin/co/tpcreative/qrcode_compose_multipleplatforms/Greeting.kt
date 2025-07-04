@@ -1,4 +1,4 @@
-package co.tpcreative.qrcode
+package co.tpcreative.qrcode_compose_multipleplatforms
 
 class Greeting {
     private val platform = getPlatform()

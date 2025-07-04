@@ -50,7 +50,7 @@ kotlin {
 }
 
 android {
-    namespace = "co.tpcreative.qrcode.shared"
+    namespace = "co.tpcreative.qrcode_compose_multipleplatforms.shared"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11

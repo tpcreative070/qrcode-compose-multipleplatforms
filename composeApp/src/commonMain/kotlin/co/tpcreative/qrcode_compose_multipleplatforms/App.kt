@@ -13,7 +13,6 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import co.tpcreative.qrcode_compose_multipleplatforms.database.PeopleDao
-import co.tpcreative.qrcode.Greeting
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 import org.jetbrains.compose.resources.painterResource

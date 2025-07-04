@@ -1,4 +1,4 @@
-package co.tpcreative.qrcode
+package co.tpcreative.qrcode_compose_multipleplatforms
 
 class JVMPlatform : Platform {
     override val name: String = "Java ${System.getProperty("java.version")}"

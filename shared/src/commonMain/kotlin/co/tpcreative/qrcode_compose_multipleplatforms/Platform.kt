@@ -1,4 +1,4 @@
-package co.tpcreative.qrcode
+package co.tpcreative.qrcode_compose_multipleplatforms
 
 interface Platform {
     val name: String

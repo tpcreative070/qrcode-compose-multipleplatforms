@@ -1,4 +1,4 @@
-package co.tpcreative.qrcode
+package co.tpcreative.qrcode_compose_multipleplatforms
 
 import android.os.Build
 
