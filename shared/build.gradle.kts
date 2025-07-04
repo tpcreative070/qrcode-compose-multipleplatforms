@@ -1,3 +1,4 @@
+import com.android.build.api.dsl.androidLibrary
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
@@ -16,10 +17,28 @@ kotlin {
         }
     }
 
-    iosX64()
-    iosArm64()
-    iosSimulatorArm64()
+    val xcfName = "sharedKit"
+    
+//    cd "$SRCROOT/.."
+//    ./gradlew :shared:embedAndSignAppleFrameworkForXcode
 
+    iosX64 {
+        binaries.framework {
+            baseName = xcfName
+        }
+    }
+
+    iosArm64 {
+        binaries.framework {
+            baseName = xcfName
+        }
+    }
+
+    iosSimulatorArm64 {
+        binaries.framework {
+            baseName = xcfName
+        }
+    }
     jvm()
 
 //    @OptIn(ExperimentalWasmDsl::class)

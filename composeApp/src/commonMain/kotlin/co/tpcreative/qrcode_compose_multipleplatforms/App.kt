@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.safeContentPadding
 import androidx.compose.material3.Button
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
@@ -32,6 +33,11 @@ fun App(peopleDao: PeopleDao) {
         ) {
             Button(onClick = { showContent = !showContent }) {
                 Text("Click me!")
+            }
+
+            Greeting().greets().forEach { greeting ->
+                Text(greeting)
+                HorizontalDivider()
             }
 
             AnimatedVisibility(showContent) {
