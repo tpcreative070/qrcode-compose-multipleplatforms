@@ -1,4 +1,4 @@
-package com.example.demo
+package co.tpcreative.qrcode
 
 import platform.UIKit.UIDevice
 

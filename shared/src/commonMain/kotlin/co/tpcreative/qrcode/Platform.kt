@@ -1,4 +1,4 @@
-package com.example.demo
+package co.tpcreative.qrcode
 
 interface Platform {
     val name: String

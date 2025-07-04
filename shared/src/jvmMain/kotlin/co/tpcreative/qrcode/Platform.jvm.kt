@@ -1,4 +1,4 @@
-package com.example.demo
+package co.tpcreative.qrcode
 
 class JVMPlatform : Platform {
     override val name: String = "Java ${System.getProperty("java.version")}"

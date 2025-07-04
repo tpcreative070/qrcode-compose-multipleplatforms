@@ -1,4 +1,4 @@
-package com.example.demo
+package co.tpcreative.qrcode
 
 class Greeting {
     private val platform = getPlatform()
