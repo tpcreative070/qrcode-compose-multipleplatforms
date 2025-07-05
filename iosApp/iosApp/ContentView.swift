@@ -16,9 +16,13 @@ struct ContentView: View {
       let phrases = Greeting().greets()
 
       var body: some View {
-          List(phrases, id: \.self) {
-              Text($0)
-          }
+
+          ComposeView()
+
+          // List(phrases, id: \.self) {
+          //     Text($0)
+          // }
+
       }
 }
 
