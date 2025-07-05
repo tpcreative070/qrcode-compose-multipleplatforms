@@ -1,0 +1,3 @@
+package co.tpcreative.qrcode_compose_multipleplatforms.core.domain
+
+interface Error

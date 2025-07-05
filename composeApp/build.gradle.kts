@@ -7,6 +7,7 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
+    alias(libs.plugins.jetbrains.kotlin.serialization)
     alias(libs.plugins.ksp)
     alias(libs.plugins.room)
 }
@@ -49,6 +50,17 @@ kotlin {
             implementation(compose.components.uiToolingPreview)
             implementation(libs.androidx.lifecycle.viewmodel)
             implementation(libs.androidx.lifecycle.runtimeCompose)
+            implementation(libs.jetbrains.compose.navigation)
+            implementation(libs.kotlinx.serialization.json)
+
+            implementation(libs.koin.compose)
+            implementation(libs.koin.compose.viewmodel)
+            api(libs.koin.core)
+
+            implementation(libs.bundles.ktor)
+            implementation(libs.bundles.coil)
+
+
             implementation(projects.shared)
             implementation(libs.room.runtime)
             implementation(libs.sqlite.bundled)
@@ -61,7 +73,13 @@ kotlin {
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
             implementation(libs.kotlinx.coroutinesSwing)
+            implementation(libs.ktor.client.okhttp)
         }
+
+        nativeMain.dependencies {
+            implementation(libs.ktor.client.darwin)
+        }
+
     }
 }
 
